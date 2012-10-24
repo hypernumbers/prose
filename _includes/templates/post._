@@ -1,7 +1,7 @@
 
 <div class="document-menu">
   <div class="document-menu-content">
-    
+
     <div class="fl filename">
       <input type="text" class="filepath" value="<%= _.filepath(path, file) %>"/>
       <div class="state"></div>
@@ -15,18 +15,19 @@
       <input type="text" class="commit-message" value="Updated."/>
       <div class="state fl">
         <% if (writeable) { %><a class='toggle-options button' href='#'>&nbsp;</a><% } %>
-        
+
         <% if (window.authenticated) { %>
           <a class='cancel-save button' href='#' title="ESC">X</a>
           <a class='save button inactive' href='#' title="CTRL+S"><%= writeable ? "SAVE" : "SEND PATCH" %></a>
         <% } %>
       </div>
     </div>
-    
+
     <% if (markdown && window.authenticated) { %>
       <% if (jekyll) { %><a class="toggle meta fr menu-item" href="#" title="CTRL+SHIFT+M">Metadata</a> <% } %>
       <a data-view="preview" class='toggle view preview fr menu-item<%= preview ? " active" : "" %>' href='#' title="Use CTRL+SHIFT+Left/Right to navigate">Preview document</a>
       <a data-view="compose" class='toggle view compose fr menu-item<%= !preview ? " active" : "" %>' title="Use CTRL+SHIFT+Left/Right to navigate" href='#'>Compose document</a>
+      <a data-view="history" class='toggle view history fr menu-item<%= !preview ? " active" : "" %>' title="Use CTRL+SHIFT+Left/Right to navigate" href='#'>Document history</a>
       <a data-view="cheatsheet" class="toggle view cheatsheet fr menu-item" href="#" title="Use CTRL+SHIFT+Left/Right to navigate">Markdown reference sheet</a>
     <% } %>
 
@@ -51,7 +52,7 @@
 </div>
 
 
-<div class='inner clearfix'>  
+<div class='inner clearfix'>
   <div class='document prose'>
     <% if (jekyll) { %>
       <div class="metadata">
@@ -63,7 +64,7 @@
 
     <div class="diff-wrapper">
       <div class="diff">
-        
+
       </div>
     </div>
 
@@ -145,6 +146,12 @@ Use 4 spaces indentation:
       <div class="content-wrapper">
         <div class="content">
           <div id="code"></div>
+        </div>
+      </div>
+
+      <div class="content-history-wrapper">
+        <div class="content-history">
+          <div id="history"></div>
         </div>
       </div>
 
